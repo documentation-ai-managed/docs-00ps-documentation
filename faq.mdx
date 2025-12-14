@@ -1,0 +1,112 @@
+---
+title: Frequently Asked Questions
+description: Find answers to common queries about using Baidu's platform, troubleshooting issues, and optimizing your experience.
+---
+
+## Account and Login Problems
+
+You encounter login issues on Baidu's platform from time to time. Common causes include forgotten passwords, browser cache problems, or network restrictions. Use the steps below to resolve most account-related problems.
+
+<Columns cols={2}>
+  <Card title="Reset Password" icon="key" href="#reset-password">
+    Recover access quickly.
+  </Card>
+  <Card title="Enable 2FA" icon="shield" href="#enable-2fa">
+    Add extra security.
+  </Card>
+  <Card title="Contact Support" icon="message-circle" href="https://support.baidu.com" target="_blank">
+    Get personalized help.
+  </Card>
+</Columns>
+
+<ExpandableGroup>
+  <Expandable title="How do I reset my forgotten password?" default-open="true">
+    Navigate to the login page and click "Forgot Password?". Enter your registered email address. Baidu sends a reset link valid for 24 hours. Follow the link to set a new password meeting these requirements: at least 8 characters, including uppercase, lowercase, and a number.
+
+    <Callout kind="tip">
+      Enable two-factor authentication (2FA) after resetting to prevent future issues.
+    </Callout>
+  </Expandable>
+
+  <Expandable title="What if I cannot log in after reset?">
+    Clear your browser cache and cookies. Switch to an incognito window or another browser like Chrome or Firefox.
+
+    <Steps>
+      <Step title="Clear Cache" icon="trash-2">
+        Press <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>Delete</kbd> (Windows) or <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>Delete</kbd> (macOS). Select "Cookies and cache" and clear for the past hour.
+      </Step>
+      <Step title="Try Incognito" icon="incognito">
+        Open a new incognito tab and attempt login again.
+      </Step>
+      <Step title="Check Network" icon="globe">
+        Disable VPN or proxy if active, then retry.
+      </Step>
+    </Steps>
+  </Expandable>
+</ExpandableGroup>
+
+## Search Optimization Tips
+
+Improve your search results on Baidu by using advanced operators and structured data. These techniques help you retrieve precise information faster.
+
+<Tabs>
+  <Tab title="Web Search" icon="globe">
+    Use operators like quotes for exact matches: `"machine learning algorithms"`.
+
+    <CodeGroup tabs="Operators,Advanced">
+      ```text
+      site:baidu.com AI tools
+      filetype:pdf research paper
+      inurl:docs tutorial
+      ```
+      ```text
+      "exact phrase" AND (AI OR artificial intelligence)
+      date:>2024-01-01 recent updates
+      related:baidu.com similar sites
+      ```
+    </CodeGroup>
+  </Tab>
+  <Tab title="API Integration" icon="code">
+    For developers, optimize queries via Baidu's Search API.
+
+    ```javascript
+    const query = 'AI optimization tips';
+    const url = `https://api.baidu.com/search?q=${encodeURIComponent(query)}&count=10`;
+    const response = await fetch(url, {
+      headers: { 'Authorization': `Bearer YOUR_API_TOKEN` }
+    });
+    const results = await response.json();
+    console.log(results);
+    ```
+  </Tab>
+</Tabs>
+
+<Callout kind="success">
+  Regularly update your search preferences in account settings for personalized results.
+</Callout>
+
+## Privacy and Data Usage
+
+Baidu prioritizes your privacy. You control what data we collect and how it is used.
+
+| Topic | Details | Your Control |
+|-------|---------|--------------|
+| Search History | Stored to improve recommendations | Delete via settings or incognito mode |
+| Location Data | Used for local results | Disable in profile > Privacy |
+| Personalized Ads | Based on search patterns | Opt out in Advertising preferences |
+
+<Expandable title="How does Baidu handle my data?">
+  We anonymize search queries and retain logs for 30 days maximum. No personal data is sold to third parties. Review our full policy at baidu.com/privacy.
+
+  ```mermaid
+  graph TD
+      A[Your Search] --> B[Anonymized Query]
+      B --> C[Process Results]
+      C --> D[Return to You]
+      E[Logs] --> F[Delete after 30 days]
+  ```
+</Expandable>
+
+<Expandable title="Can I delete my data?">
+  Yes. Go to account settings > Data Management > Delete History. For full account deletion, contact support with verification.
+</Expandable>

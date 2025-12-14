@@ -1,0 +1,108 @@
+---
+title: Introduction to Baidu
+description: Discover Baidu, a leading AI-powered search engine and online services platform designed to help users find information and access relevant content efficiently.
+---
+
+## Overview
+
+Baidu powers your search for information across the web and beyond. As a leading AI company, Baidu delivers advanced search capabilities, cloud services, and AI tools that connect users to relevant content instantly. You benefit from intelligent recommendations, natural language processing, and seamless online experiences tailored to your needs.
+
+<Columns cols={3}>
+  <Card title="AI-Powered Search" icon="search" href="/docs/search">
+    Find exactly what you need with semantic understanding and real-time results.
+  </Card>
+  <Card title="Cloud Services" icon="cloud" href="/docs/cloud">
+    Scale your applications with reliable infrastructure and AI integrations.
+  </Card>
+  <Card title="Developer Tools" icon="code" href="/docs/developers">
+    Build innovative apps using Baidu's APIs and SDKs.
+  </Card>
+</Columns>
+
+## Baidu's Mission and History
+
+Baidu launched in 2000 as China's premier search engine, evolving into a global AI leader. Its mission focuses on making the internet accessible through innovative technology. You rely on Baidu for daily searches, maps, music, and more, all enhanced by cutting-edge AI.
+
+<Expandable title="Key Milestones" default-open="false">
+
+- **2000**: Founded as a search engine alternative.
+- **2010**: Entered AI research with deep learning initiatives.
+- **2020**: Launched Ernie Bot, a conversational AI model rivaling global leaders.
+- **Today**: Serves billions of queries daily with multimodal AI capabilities.
+
+</Expandable>
+
+## Core AI Technologies
+
+Baidu leverages proprietary models like ERNIE for natural language understanding. You access these through APIs for search, translation, and content generation.
+
+<Tabs>
+  <Tab title="ERNIE Bot" icon="bot">
+    ERNIE processes complex queries with context-aware responses.
+    
+    ```javascript
+    const baidu = require('baidu-sdk');
+    const response = await baidu.ernie.chat({
+      query: 'Explain quantum computing',
+      model: 'ernie-3.5'
+    });
+    console.log(response.text);
+    ```
+  </Tab>
+  <Tab title="PaddlePaddle" icon="cpu">
+    Open-source deep learning framework for custom models.
+    
+    ```python
+    import paddle
+    model = paddle.nn.Linear(10, 1)
+    optimizer = paddle.optimizer.Adam(learning_rate=0.001, parameters=model.parameters())
+    ```
+  </Tab>
+</Tabs>
+
+<Callout kind="info">
+  Start with your `{API_KEY}` from the Baidu Cloud Console to test these technologies.
+</Callout>
+
+## Benefits for Users and Developers
+
+Users enjoy faster, smarter searches with personalized results. Developers integrate Baidu's AI to enhance apps without building from scratch.
+
+<Steps>
+  <Step title="Sign Up" icon="user-plus">
+    Create a free account at console.baidu.com.
+  </Step>
+  <Step title="Get API Key" icon="key">
+    Generate your `{API_KEY}` in the console dashboard.
+  </Step>
+  <Step title="Integrate" icon="code">
+    Use the SDK for quick setup.
+    
+    <CodeGroup tabs="Node.js,Python">
+      ```javascript
+      npm install baidu-sdk
+      const client = new BaiduClient({ apiKey: 'YOUR_API_KEY' });
+      ```
+      ```python
+      pip install baidu-sdk
+      client = BaiduClient(api_key='YOUR_API_KEY')
+      ```
+    </CodeGroup>
+  </Step>
+  <Step title="Query Data" icon="search">
+    Send your first request and explore results.
+  </Step>
+</Steps>
+
+## How Baidu Processes Your Queries
+
+```mermaid
+graph LR
+    A[User Query] --> B[ERNIE Parser]
+    B --> C[Knowledge Graph]
+    C --> D[Real-time Index]
+    D --> E[Personalized Results]
+    E --> A
+```
+
+This flow ensures relevant, up-to-date information reaches you efficiently. Explore the documentation to build on Baidu's foundation today.

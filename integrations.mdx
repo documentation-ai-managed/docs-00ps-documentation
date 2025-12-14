@@ -1,0 +1,178 @@
+---
+title: Integrations and Developer Resources
+description: Learn how to integrate Baidu's services with third-party applications and access developer tools for extended functionality.
+---
+
+## Overview
+
+Integrate Baidu's powerful search and AI services into your applications. You access endpoints for real-time search queries and AI-powered responses. Connect with third-party tools like Zapier or custom webhooks for seamless workflows. Follow best practices to ensure secure and efficient implementations.
+
+<Columns cols={3}>
+  <Card title="Search API" icon="search" href="/docs/search-api">
+    Perform web searches and retrieve ranked results.
+  </Card>
+  <Card title="AI Chat API" icon="bot" href="/docs/ai-chat">
+    Generate intelligent responses using Baidu's models.
+  </Card>
+  <Card title="Webhook Integrations" icon="plug" href="/docs/webhooks">
+    Receive real-time notifications from Baidu services.
+  </Card>
+</Columns>
+
+## Quickstart: Integrate Search API
+
+Follow these steps to add Baidu Search to your app.
+
+<Steps>
+  <Step title="Get API Key" icon="key">
+    Sign up at the [Baidu Developer Console](https://console.baidu.com) and create a new project. Copy your `{API_KEY}`.
+  </Step>
+  <Step title="Install SDK" icon="download">
+    Choose your language and install the official SDK.
+  </Step>
+  <Step title="Make First Request" icon="play">
+    Send a search query and handle the response.
+  </Step>
+</Steps>
+
+<CodeGroup tabs="JavaScript,Python">
+```javascript
+const response = await fetch('https://api.baidu.com/v1/search', {
+  method: 'POST',
+  headers: { 'Authorization': `Bearer ${YOUR_API_KEY}` },
+  body: JSON.stringify({ query: 'machine learning' })
+});
+const data = await response.json();
+```
+```python
+import requests
+
+response = requests.post(
+    'https://api.baidu.com/v1/search',
+    headers={'Authorization': f'Bearer {YOUR_API_KEY}'},
+    json={'query': 'machine learning'}
+)
+data = response.json()
+```
+</CodeGroup>
+
+## API Endpoints
+
+Access core endpoints for search and AI functionalities.
+
+<Tabs>
+  <Tab title="Search Endpoint" icon="search">
+    Query Baidu's index for relevant web results.
+
+    <Request tabs="JavaScript,cURL" show-lines="true">
+```javascript
+fetch('https://api.baidu.com/v1/search', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'Authorization': `Bearer ${YOUR_API_KEY}`
+  },
+  body: JSON.stringify({
+    query: 'AI developments',
+    lang: 'en',
+    num_results: 10
+  })
+});
+```
+```bash
+curl -X POST https://api.baidu.com/v1/search \
+  -H "Authorization: Bearer YOUR_API_KEY" \
+  -H "Content-Type: application/json" \
+  -d '{"query": "AI developments", "lang": "en", "num_results": 10}'
+```
+    </Request>
+
+    <Response tabs="200">
+```json
+{
+  "results": [
+    {
+      "title": "Latest AI News",
+      "url": "https://example.com/ai-news",
+      "snippet": "Recent advancements in..."
+    }
+  ],
+  "total": 1500
+}
+```
+    </Response>
+
+    <ParamField path="query" param-type="string" required="true">
+      Your search term.
+    </ParamField>
+
+    <ParamField query="lang" param-type="string" required="false">
+      Language code, defaults to `{en}`.
+    </ParamField>
+  </Tab>
+
+  <Tab title="AI Chat Endpoint" icon="bot">
+    Send messages to Baidu's AI model.
+
+    <Callout kind="tip">
+      Limit requests to `<100` per minute to avoid rate limits.
+    </Callout>
+
+    <ParamField body="messages" param-type="array" required="true">
+      Array of message objects: `[{role: "user", content: "Hello"}]`.
+    </ParamField>
+  </Tab>
+</Tabs>
+
+## Third-Party Connections
+
+Connect Baidu to popular tools.
+
+| Platform | Connection Type | Setup Time |
+|----------|-----------------|------------|
+| Zapier   | Webhook Trigger | 5 minutes |
+| Slack    | Bot Integration | 10 minutes |
+| Google Sheets | API Export     | 15 minutes |
+
+Use webhooks for event-driven integrations. Set up by providing `https://your-webhook-url.com/baidu` in your Baidu console.
+
+## Best Practices
+
+<Callout kind="alert">
+  Always validate `{API_KEY}` server-side and use HTTPS for all requests.
+</Callout>
+
+- Rotate keys regularly.
+- Implement retry logic for transient errors.
+- Cache frequent search results to reduce API calls.
+
+```javascript
+// Example: Retry with exponential backoff
+async function searchWithRetry(query, maxRetries = 3) {
+  for (let i = 0; i < maxRetries; i++) {
+    try {
+      const response = await fetch('https://api.baidu.com/v1/search', {
+        // ... request config
+      });
+      return await response.json();
+    } catch (error) {
+      if (i === maxRetries - 1) throw error;
+      await new Promise(resolve => setTimeout(resolve, 2 ** i * 1000));
+    }
+  }
+}
+```
+
+## Developer Resources
+
+Explore SDKs and community tools.
+
+<Expandable title="Advanced Configuration" default-open="false">
+  Customize rate limits and batch requests for high-volume apps.
+
+  ```python
+  # Batch search example
+  batch_queries = ['query1', 'query2']
+  responses = [search(q) for q in batch_queries]
+  ```
+</Expandable>

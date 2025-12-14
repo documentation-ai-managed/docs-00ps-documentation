@@ -1,0 +1,112 @@
+---
+title: Key Features and Capabilities
+description: Explore the essential features of Baidu that leverage AI to enhance search accuracy, content discovery, and user experience.
+---
+
+## Overview
+
+Baidu powers your search with cutting-edge AI. You access precise results, tailored recommendations, and seamless tools. These capabilities deliver faster, smarter interactions across devices.
+
+<Columns cols={3}>
+  <Card title="AI Search" icon="search" href="/docs/search">
+    Find information with advanced algorithms that understand context and intent.
+  </Card>
+  <Card title="Personalization" icon="user" href="/docs/personalization">
+    Receive content matched to your preferences and history.
+  </Card>
+  <Card title="Integrated Tools" icon="tool" href="/docs/tools">
+    Use maps, translation, and more within your search experience.
+  </Card>
+</Columns>
+
+## AI-Enhanced Search Algorithms
+
+Baidu's AI algorithms process natural language queries. You benefit from semantic understanding that goes beyond keywords. Expect results in `<100ms` for most searches.
+
+<Callout kind="info">
+  Enable AI search in your app by including the `ai-mode` parameter.
+</Callout>
+
+Integrate via API:
+
+<CodeGroup tabs="JavaScript,Python">
+  ```javascript
+  const baiduSearch = async (query) => {
+    const response = await fetch('https://api.baidu.com/search', {
+      method: 'POST',
+      headers: { 'Authorization': 'Bearer YOUR_API_KEY' },
+      body: JSON.stringify({ query, aiMode: true })
+    });
+    return response.json();
+  };
+  ```
+  ```python
+  import requests
+
+  def baidu_search(query):
+      response = requests.post(
+          'https://api.baidu.com/search',
+          headers={'Authorization': 'Bearer YOUR_API_KEY'},
+          json={'query': query, 'aiMode': True}
+      )
+      return response.json()
+  ```
+</CodeGroup>
+
+## Personalized Content Recommendations
+
+You receive suggestions based on browsing history and location. AI analyzes patterns to prioritize relevant news, videos, and products.
+
+<Tabs>
+  <Tab title="Web" icon="globe">
+    Access recommendations on baidu.com. Log in to sync across sessions.
+  </Tab>
+  <Tab title="Mobile App" icon="smartphone">
+    Enable push notifications for daily personalized feeds.
+  </Tab>
+  <Tab title="API Integration" icon="code">
+    ```javascript
+    const getRecommendations = async (userId) => {
+      const res = await fetch('https://api.baidu.com/recommend', {
+        headers: { 'X-User-ID': userId }
+      });
+      return res.json();
+    };
+    ```
+  </Tab>
+</Tabs>
+
+## Integrated Online Tools and Services
+
+Combine search with maps, translation, and cloud storage. You switch tools without leaving the platform.
+
+<Steps>
+  <Step title="Search with Maps" icon="map">
+    Enter a location query. AI detects intent and shows integrated map results.
+  </Step>
+  <Step title="Translate Content" icon="globe">
+    Highlight text. Use the built-in translator powered by AI.
+  </Step>
+  <Step title="Store Files" icon="cloud">
+    Save search results directly to Baidu Cloud.
+  </Step>
+</Steps>
+
+```mermaid
+graph LR
+    A[User Query] --> B[AI Processor]
+    B --> C[Search Index]
+    C --> D[Personalized Results]
+    D --> E[Tools: Maps, Translate]
+    E --> F[User]
+```
+
+| Feature | Benefit | Use Case |
+|---------|---------|----------|
+| AI Search | Contextual results | Complex queries |
+| Recommendations | Tailored content | Daily discovery |
+| Tools | Seamless workflow | Travel planning |
+
+<Expandable title="Advanced Customization" default-open="false">
+  Customize via dashboard. Set `recommendationDepth` to `{ "shallow": 5, "deep": 20 }`.
+</Expandable>

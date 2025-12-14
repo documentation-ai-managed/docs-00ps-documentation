@@ -1,0 +1,112 @@
+---
+title: Quick Start Guide
+description: Get started with Baidu's search and services in just a few steps, from account setup to your first search query.
+---
+
+## Overview
+
+Start using Baidu's powerful search engine and online services immediately. You create an account, run your first search, and explore features like maps, news, and cloud storage. This guide walks you through the essentials in minutes.
+
+<Columns cols={3}>
+  <Card title="Account Setup" icon="user-plus" href="#create-account">
+    Sign up securely in seconds.
+  </Card>
+  <Card title="Basic Search" icon="search" href="#perform-search">
+    Query anything from the web or API.
+  </Card>
+  <Card title="Online Services" icon="globe" href="#explore-services">
+    Access maps, email, and more.
+  </Card>
+</Columns>
+
+## Create Your Baidu Account
+
+Follow these steps to set up your free Baidu account. You gain access to personalized searches, saved results, and premium services.
+
+<Steps>
+  <Step title="Visit Baidu" icon="globe">
+    Open your browser and go to [www.baidu.com](https://www.baidu.com).
+  </Step>
+  <Step title="Click Sign Up" icon="user-plus">
+    Locate the "Sign Up" button in the top-right corner and click it.
+  </Step>
+  <Step title="Enter Details" icon="edit">
+    Provide your email or phone number, create a strong password, and complete verification.
+  </Step>
+  <Step title="Verify Account" icon="check-circle">
+    Check your email or SMS for the verification code and enter it to activate.
+  </Step>
+</Steps>
+
+<Callout kind="tip">
+  Use a strong password combining letters, numbers, and symbols for better security.
+</Callout>
+
+## Perform Your First Search
+
+Query Baidu's vast index of web content. Choose your preferred method below.
+
+<Tabs>
+  <Tab title="Web Browser" icon="globe">
+    Enter your search term like "Beijing weather" in the search box on [www.baidu.com](https://www.baidu.com). Press Enter to see instant results with snippets, images, and links.
+  </Tab>
+  <Tab title="Mobile App" icon="smartphone">
+    Download the Baidu App from App Store or Google Play. Log in with your account and tap the search icon to query on the go.
+  </Tab>
+  <Tab title="API" icon="code">
+    Integrate searches programmatically. First, generate an API key from your Baidu account dashboard.
+
+    <CodeGroup tabs="JavaScript,Python,cURL">
+      ```javascript
+      const API_KEY = 'your-baidu-api-key';
+      const query = 'Beijing weather';
+      
+      fetch(`https://api.baidu.com/search?q=${encodeURIComponent(query)}&key=${API_KEY}`)
+        .then(response => response.json())
+        .then(data => console.log(data.results));
+      ```
+
+      ```python
+      import requests
+      
+      API_KEY = 'your-baidu-api-key'
+      query = 'Beijing weather'
+      
+      response = requests.get(
+          'https://api.baidu.com/search',
+          params={'q': query, 'key': API_KEY}
+      )
+      print(response.json()['results'])
+      ```
+
+      ```bash
+      curl "https://api.baidu.com/search?q=Beijing%20weather&key=your-baidu-api-key"
+      ```
+    </CodeGroup>
+  </Tab>
+</Tabs>
+
+## Navigate Online Services
+
+Baidu offers integrated services beyond search. Access them from the homepage navigation or your account menu.
+
+| Service | Description | Icon |
+|---------|-------------|------|
+| Baidu Maps | Get directions and explore locations | `map` |
+| Baidu News | Stay updated with real-time headlines | `newspaper` |
+| Baidu Cloud | Store and share files securely | `cloud` |
+| Baidu Tieba | Join communities and forums | `message-circle` |
+
+<Callout kind="info">
+  Log in to sync your data across devices and unlock personalized recommendations.
+</Callout>
+
+## Next Steps
+
+Customize your experience by setting search preferences in account settings. Explore advanced features like image search or voice queries.
+
+<Expandable title="Troubleshooting Common Issues" default-open="false">
+  - **No results?** Check your query spelling and internet connection.
+  - **API errors?** Verify your `{API_KEY}` and quota limits.
+  - **Account locked?** Use the forgot password link.
+</Expandable>
